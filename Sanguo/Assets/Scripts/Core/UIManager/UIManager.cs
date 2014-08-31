@@ -13,20 +13,20 @@ public class UIManager : Singleton<UIManager>
     /// </summary>
     public Dictionary<string, GameObject> m_dicUIView = new Dictionary<string, GameObject>();
 
-    private string m_uiRootName = "UI Root/UI";
+    private string m_uiRootName = "UIRoot";
 
     // UI摄像机物体
-    private GameObject m_uiCamera;
-    public GameObject UICamera
+    private GameObject m_uiRoot;
+    public GameObject UIRoot
     {
         get
         {
-            if (m_uiCamera == null)
+            if (m_uiRoot == null)
             {
-                m_uiCamera = GameObject.Find(m_uiRootName);
+                m_uiRoot = GameObject.Find(m_uiRootName);
             }
 
-            return m_uiCamera;
+            return m_uiRoot;
         }
     }
 
@@ -41,7 +41,7 @@ public class UIManager : Singleton<UIManager>
             return m_dicUIView[name];
         }
 
-        GameObject go = ResourcesManager.Instance.LoadUIView(name, UICamera);
+        GameObject go = ResourcesManager.Instance.LoadUIView(name, UIRoot);
         if (go == null)
         {
             Debug.LogError("The view is not exist! name = " + name);

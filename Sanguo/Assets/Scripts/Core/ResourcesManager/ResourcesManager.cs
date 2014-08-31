@@ -31,6 +31,11 @@ public class ResourcesManager : Singleton<ResourcesManager>
     {
         GameObject prefab = Resources.Load<GameObject>(name);
 
+        if (prefab == null)
+        {
+            return null;
+        }
+
         GameObject go = GameObject.Instantiate(prefab);
 		go.transform.parent = parent.transform;
 		go.transform.localPosition = Vector3.zero;
