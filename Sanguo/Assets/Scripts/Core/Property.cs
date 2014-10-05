@@ -38,6 +38,14 @@ public class PropertyChangeEventArgs : System.EventArgs
 }
 #endregion
 
+public class Property<T>
+{
+    public Property(PropertyType propertyType)
+    {
+        
+    }
+}
+
 /// <summary>
 /// 属性基类
 /// </summary>
